@@ -5,7 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProviders
+import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.get
 import com.bdAdapter.databinding.DiffRecyclerViewBinding
 
@@ -14,7 +14,7 @@ class FragmentDiffRecyclerView : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        viewModel = ViewModelProviders.of(this).get()
+        viewModel = ViewModelProvider(this).get()
     }
 
     override fun onCreateView(

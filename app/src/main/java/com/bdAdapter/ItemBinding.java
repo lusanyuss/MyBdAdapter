@@ -23,6 +23,17 @@ public final class ItemBinding<T> {
     private static final int VAR_INVALID = -1;
     private static final int LAYOUT_NONE = 0;
 
+    @Nullable
+    private final OnItemBind<T> onItemBind;
+    private int variableId;
+    @LayoutRes
+    private int layoutRes;
+    private SparseArray<Object> extraBindings;
+
+    private ItemBinding(@Nullable OnItemBind<T> onItemBind) {
+        this.onItemBind = onItemBind;
+    }
+
     /**
      * Constructs an instance with the given variable id and layout.
      */
@@ -44,17 +55,6 @@ public final class ItemBinding<T> {
             throw new NullPointerException("onItemBind == null");
         }
         return new ItemBinding<>(onItemBind);
-    }
-
-    @Nullable
-    private final OnItemBind<T> onItemBind;
-    private int variableId;
-    @LayoutRes
-    private int layoutRes;
-    private SparseArray<Object> extraBindings;
-
-    private ItemBinding(@Nullable OnItemBind<T> onItemBind) {
-        this.onItemBind = onItemBind;
     }
 
     /**
